@@ -12,6 +12,9 @@ export function showFormDelegation() {
     document.querySelector("#others").addEventListener(evt, setLenght);
   });
   document.querySelector("#unknown").addEventListener("change", toggleInputs);
+  document.querySelector("#others").addEventListener("click", () => {
+    elements.others.style.width = "150px";
+  });
 }
 
 function changeHeader(e) {
@@ -26,20 +29,22 @@ function toggleInputs() {
   //Instead of writing if/else, then we now set the element to diabled, and when it is disabled, we set it to the opposite
   description.disabled = !description.disabled;
   unknown.focus = !unknown.focus;
+  if (unknown.checked) {
+    description.placeholder = "";
+    description.value = "";
+  } else {
+    description.placeholder = "Type a description";
+  }
 }
 
 function setLenght() {
   console.log("setLenght");
   const others = elements.others;
-  if (others.onfocus) {
-    others.style.width = "200px";
+  if (others.value == "") {
+    console.log("normal width");
+    others.style.width = "20px";
   } else {
-    if (others.value == "") {
-      console.log("normal width");
-      others.style.height = "18px";
-    } else {
-      console.log("long");
-      others.style.width = "200px";
-    }
+    console.log("long");
+    others.style.width = "150px";
   }
 }

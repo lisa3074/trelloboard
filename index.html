@@ -28,76 +28,101 @@
         <button class="edit">Edit</button>
       </article>
     </template>
-    <section class="form">
+    <section class="form hide">
+      <p class="close_it">✕</p>
       <article class="form_container">
-        <h1>Tasks</h1>
+        <h1 class="header">Task: <span></span></h1>
         <form data-state="post" data-id="">
-          <fieldset>
-            <legend class="header">Task title: <span></span></legend>
-            <div class="info">
-              <div class="info_wrapper">
-                <label for="name">Task name</label>
-                <span>|| Type the name of the task</span>
-                <input type="text" id="name" name="name" placeholder="Name" required />
-                <p class="invalid_text">What is the task name?</p>
-              </div>
+          <div class="left_col">
+            <fieldset>
+              <legend>Info</legend>
+              <div class="info">
+                <div class="info_wrapper2">
+                  <label for="name">Task name</label>
+                  <span>|| Type the name of the task</span>
+                  <input type="text" id="name" name="name" placeholder="Name" required />
+                  <p class="invalid_text">What is the task name?</p>
+                </div>
 
-              <div class="info_wrapper">
-                <label for="description">Description</label>
-                <span>|| Type a description that fits the task</span>
-                <textarea placeholder="Type a description" id="description" value="" name="description" rows="10" cols="100"></textarea>
-              </div>
+                <div class="info_wrapper">
+                  <label for="description">Description</label>
+                  <span>|| Type a description that fits the task</span>
+                  <textarea placeholder="Type a description" id="description" value="" name="description" rows="10" cols="100"></textarea>
+                </div>
 
-              <div class="info_wrapper">
-                <label for="unknown">Don't know</label>
-                <span>|| Check if you don't have a description</span>
-                <input type="checkbox" id="unknown" name="unknown" />
-              </div>
+                <div class="info_wrapper">
+                  <label for="unknown">No description</label>
+                  <span>|| Check if you don't have a description</span>
+                  <input type="checkbox" id="unknown" name="unknown" />
+                </div>
 
-              <div class="info_wrapper">
-                <label for="estimate">Time esitmate in hours</label>
-                <span>|| Has to be a number</span>
-                <input type="number" id="estimate" name="time_estimate" placeholder="Time estimate" required />
-                <p class="invalid_text">How many hours does the task require?</p>
-              </div>
+                <div class="info_wrapper">
+                  <label for="estimate">Time esitmate in hours</label>
+                  <span>|| Has to be a number</span>
+                  <input type="number" id="estimate" name="time_estimate" placeholder="Time estimate" required />
+                  <p class="invalid_text">How many hours does the task require?</p>
+                </div>
 
-              <div class="info_wrapper">
-                <label for="duedate">Due date</label>
-                <span>|| Pick the due date of the task</span>
-                <input type="date" id="duedate" name="duedate" min="2020-01-01" max="2031-12-31" />
-              </div>
+                <div class="info_wrapper">
+                  <label for="duedate">Due date</label>
+                  <span>|| Pick the due date of the task</span>
+                  <input type="date" id="duedate" name="duedate" min="2020-01-01" max="2031-12-31" />
+                </div>
 
-              <div class="info_wrapper">
-                <label for="image">Image</label>
-                <span>|| Upload an image</span>
-                <input type="file" id="image" name="image" />
+                <div class="info_wrapper">
+                  <label for="image">Image</label>
+                  <span>|| Upload an image</span>
+                  <input type="file" id="image" name="image" />
+                </div>
               </div>
-            </div>
-          </fieldset>
-          <fieldset class="check">
-            <legend>Category</legend>
-            <span>Check all the categories that fit the task</span>
-            <p class="invalid_text hidden">I'm sure the task fits in at least one category...</p>
-            <div class="pre_written">
-              <div><input type="checkbox" id="research" name="category" value="Research" /> <label for="research">Research</label></div>
-              <div><input type="checkbox" id="design" name="category" value="Design" /> <label for="design">Design</label></div>
-              <div><input type="checkbox" id="code" name="category" value="Code" /> <label for="code">Code</label></div>
-              <div><input type="checkbox" id="html" name="category" value="HTML" /> <label for="html">HTML</label></div>
-              <div><input type="checkbox" id="css" name="category" value="CSS" /> <label for="css">CSS</label></div>
-              <div><input type="checkbox" id="js" name="category" value="JavaScript" /> <label for="ja">JavaScript</label></div>
-              <div><input type="checkbox" id="test" name="category" value="Test" /> <label for="test">Test</label></div>
-              <div><input type="checkbox" id="documentation" name="category" value="Documentation" /> <label for="documentation">Documentation</label></div>
-            </div>
-            <div><input type="text" id="others" name="others" /> <label for="others">Others</label></div>
-            <!--      <div><input type="checkbox" id="others" name="category" /> <label for="others">Others</label></div> -->
-            <button type="submit">Add task</button>
-          </fieldset>
+            </fieldset>
+          </div>
+          <div class="right_col">
+            <fieldset class="check">
+              <legend>Category</legend>
+              <span>|| Check all the categories that fit the task</span>
+              <div class="pre_written">
+                <div><input type="checkbox" id="research" name="category" value="Research" /> <label for="research">Research</label></div>
+                <div><input type="checkbox" id="design" name="category" value="Design" /> <label for="design">Design</label></div>
+                <div><input type="checkbox" id="code" name="category" value="Code" /> <label for="code">Code</label></div>
+                <div><input type="checkbox" id="html" name="category" value="HTML" /> <label for="html">HTML</label></div>
+                <div><input type="checkbox" id="css" name="category" value="CSS" /> <label for="css">CSS</label></div>
+                <div><input type="checkbox" id="js" name="category" value="JavaScript" /> <label for="ja">JavaScript</label></div>
+                <div><input type="checkbox" id="test" name="category" value="Test" /> <label for="test">Test</label></div>
+                <div><input type="checkbox" id="documentation" name="category" value="Documentation" /> <label for="documentation">Documentation</label></div>
+              </div>
+              <div><input type="text" id="others" name="others" /> <label for="others">Others</label></div>
+              <p class="invalid_text hidden">I'm sure the task fits in at least one category...</p>
+            </fieldset>
+            <fieldset class="list">
+              <legend>List</legend>
+              <span>|| How far along is this task?</span>
+              <!--            <div class="pre_written"> -->
+              <div><input type="checkbox" id="todo" name="list" value="To do" /> <label for="todo">To do</label></div>
+              <div><input type="checkbox" id="in_progress" name="list" value="In progress" /> <label for="in_progress">In progress</label></div>
+              <div><input type="checkbox" id="done" name="category" value="Done" /> <label for="done">Done</label></div>
+              <div><input type="checkbox" id="barriers" name="category" value="Barriers" /> <label for="barriers">Barriers</label></div>
+
+              <!--        </div> -->
+              <p class="invalid_text hidden">I'm sure the task shoul be put in one of the lists...</p>
+            </fieldset>
+
+            <button class="submit" type="submit">Add task</button>
+          </div>
         </form>
       </article>
     </section>
-    <section class="append"></section>
+    <section class="list_wrapper">
+      <article class="todo list_element">
+        <p>To do</p>
+        <span></span>
+      </article>
+      <article class="progress list_element"><p>In progress</p></article>
+      <article class="done list_element"><p>Done</p></article>
+      <article class="barrier list_element"><p>Barrier</p></article>
+    </section>
     <!--     <button class="add">Add task</button> -->
-
+    <button class="add_new">Add new task</button>
     <script src="script.js"></script>
   </body>
 </html>

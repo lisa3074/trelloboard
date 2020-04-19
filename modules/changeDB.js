@@ -14,7 +14,7 @@ export function changeDbDelegation() {
 //Get/fetch all objects
 async function get() {
   console.log("get");
-  document.querySelector(".append").innerHTML = "";
+  document.querySelector(".todo span").innerHTML = "";
   let response = await fetch(endpoint, {
     method: "get",
     headers: {
@@ -128,10 +128,12 @@ function displayData(entry) {
   });
   //For klik på edit knap -> gå til edit og send id'et med, så det er den samme klon der redigeres, som der klikkes på.
   clone.querySelector(".edit").addEventListener("click", function () {
+    document.querySelector(".form").classList.toggle("hide");
+
     getSingleTask(entry._id, setUpFormForEdit);
     // put(entry._id);
   });
-  document.querySelector(".append").appendChild(clone);
+  document.querySelector(".todo span").appendChild(clone);
 }
 
 function displyEdit(data, id) {

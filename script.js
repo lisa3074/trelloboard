@@ -26,6 +26,12 @@ function start() {
   form.addEventListener("submit", (e) => {
     checkIfValid(e);
   });
+  document.querySelector(".add_new").addEventListener("click", formToggle);
+  document.querySelector(".close_it").addEventListener("click", formToggle);
+}
+function formToggle() {
+  console.log("formTogle");
+  document.querySelector(".form").classList.toggle("hide");
 }
 
 function checkIfValid(e) {
@@ -53,6 +59,7 @@ function checkIfValid(e) {
   }
   //check if valid
   if (isValid && formIsValid) {
+    document.querySelector(".form").classList.toggle("hide");
     if (form.dataset.state === "post") {
       post({
         name: form.elements.name.value,
