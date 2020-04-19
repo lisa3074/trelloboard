@@ -18,8 +18,9 @@
           <p class="time_estimate"><span></span></p>
         </div>
         <div class="wrap">
-          <ul></ul>
+          <ul class="categorys"></ul>
         </div>
+        <p class="other"></p>
         <figure>
           <img src="" alt="" class="image" />
         </figure>
@@ -30,9 +31,9 @@
     <section class="form">
       <article class="form_container">
         <h1>Tasks</h1>
-        <fieldset>
-          <legend class="header">Task title: <span></span></legend>
-          <form>
+        <form data-state="post" data-id="">
+          <fieldset>
+            <legend class="header">Task title: <span></span></legend>
             <div class="info">
               <div class="info_wrapper">
                 <label for="name">Task name</label>
@@ -44,7 +45,7 @@
               <div class="info_wrapper">
                 <label for="description">Description</label>
                 <span>|| Type a description that fits the task</span>
-                <textarea placeholder="Type a description" id="description" name="description" rows="10" cols="100"></textarea>
+                <textarea placeholder="Type a description" id="description" value="" name="description" rows="10" cols="100"></textarea>
               </div>
 
               <div class="info_wrapper">
@@ -63,7 +64,7 @@
               <div class="info_wrapper">
                 <label for="duedate">Due date</label>
                 <span>|| Pick the due date of the task</span>
-                <input type="datetime-local" id="duedate" name="duedate" min="2020-01-01T00:00" max="2031-12-31T00:00" />
+                <input type="date" id="duedate" name="duedate" min="2020-01-01" max="2031-12-31" />
               </div>
 
               <div class="info_wrapper">
@@ -72,29 +73,30 @@
                 <input type="file" id="image" name="image" />
               </div>
             </div>
-            <fieldset class="check">
-              <legend>Category</legend>
-              <span>Check all the categories that fit the task</span>
-              <p class="invalid_text hidden">I'm sure the task fits in at least one category...</p>
-              <div class="pre_written">
-                <div><input type="checkbox" id="research" name="category" value="Research" /> <label for="research">Research</label></div>
-                <div><input type="checkbox" id="design" name="category" value="Design" /> <label for="design">Design</label></div>
-                <div><input type="checkbox" id="code" name="category" value="Code" /> <label for="perc">Code</label></div>
-                <div><input type="checkbox" id="html" name="category" value="HTML" /><label for="html">HTML</label></div>
-                <div><input type="checkbox" id="css" name="category" value="CSS" /> <label for="css">CSS</label></div>
-                <div><input type="checkbox" id="js" name="category" value="JavaScript" /> <label for="ja">JavaScript</label></div>
-                <div><input type="checkbox" id="test" name="category" value="Test" /> <label for="test">Test</label></div>
-                <div><input type="checkbox" id="documentation" name="category" value="" /> <label for="documentation">Documentation</label></div>
-              </div>
-              <div><input type="checkbox" id="others" name="category" /> <label for="others">Others</label></div>
-            </fieldset>
+          </fieldset>
+          <fieldset class="check">
+            <legend>Category</legend>
+            <span>Check all the categories that fit the task</span>
+            <p class="invalid_text hidden">I'm sure the task fits in at least one category...</p>
+            <div class="pre_written">
+              <div><input type="checkbox" id="research" name="category" value="Research" /> <label for="research">Research</label></div>
+              <div><input type="checkbox" id="design" name="category" value="Design" /> <label for="design">Design</label></div>
+              <div><input type="checkbox" id="code" name="category" value="Code" /> <label for="code">Code</label></div>
+              <div><input type="checkbox" id="html" name="category" value="HTML" /> <label for="html">HTML</label></div>
+              <div><input type="checkbox" id="css" name="category" value="CSS" /> <label for="css">CSS</label></div>
+              <div><input type="checkbox" id="js" name="category" value="JavaScript" /> <label for="ja">JavaScript</label></div>
+              <div><input type="checkbox" id="test" name="category" value="Test" /> <label for="test">Test</label></div>
+              <div><input type="checkbox" id="documentation" name="category" value="Documentation" /> <label for="documentation">Documentation</label></div>
+            </div>
+            <div><input type="text" id="others" name="others" /> <label for="others">Others</label></div>
+            <!--      <div><input type="checkbox" id="others" name="category" /> <label for="others">Others</label></div> -->
             <button type="submit">Add task</button>
-          </form>
-        </fieldset>
+          </fieldset>
+        </form>
       </article>
     </section>
     <section class="append"></section>
-    <button class="add">Add task</button>
+    <!--     <button class="add">Add task</button> -->
 
     <script src="script.js"></script>
   </body>

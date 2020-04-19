@@ -12,7 +12,6 @@ export function showFormDelegation() {
     document.querySelector("#others").addEventListener(evt, setLenght);
   });
   document.querySelector("#unknown").addEventListener("change", toggleInputs);
-  document.querySelector("#others").addEventListener("click", setType);
 }
 
 function changeHeader(e) {
@@ -29,23 +28,18 @@ function toggleInputs() {
   unknown.focus = !unknown.focus;
 }
 
-function setType() {
-  const other = elements.others;
-  if (other.focus) {
-    elements.others.type = "text";
-  }
-}
-
 function setLenght() {
   console.log("setLenght");
   const others = elements.others;
-  if (others.value == "") {
-    console.log("normal width");
-    others.type = "checkbox";
-    others.checked = false;
-    others.style.width = "20px";
-  } else {
-    console.log("long");
+  if (others.onfocus) {
     others.style.width = "200px";
+  } else {
+    if (others.value == "") {
+      console.log("normal width");
+      others.style.height = "18px";
+    } else {
+      console.log("long");
+      others.style.width = "200px";
+    }
   }
 }

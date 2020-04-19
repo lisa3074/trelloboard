@@ -4,6 +4,7 @@ import "@babel/polyfill";
 import { showFormDelegation } from "./modules/showForm";
 import { changeDbDelegation } from "./modules/changeDB";
 import { post } from "./modules/changeDB";
+import { put } from "./modules/changeDB";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -52,17 +53,38 @@ function checkIfValid(e) {
   }
   //check if valid
   if (isValid && formIsValid) {
+    if (form.dataset.state === "post") {
+      post({
+        name: form.elements.name.value,
+        description: form.elements.description.value,
+        time_estimate: form.elements.time_estimate.value,
+        duedate: form.elements.duedate.value,
+        image: form.elements.image.value,
+        //use map for creating an array (because of the multiple input option
+        //Remember to put a fixed value on the checkboxes, oterwise its just gonna say "on")
+        category: checked.map((el) => el.value),
+        others: form.elements.others.value,
+      });
+    } else {
+      put(
+        {
+          //Det objekt der skal sættes ind i stedet (redigering)
+          name: form.elements.name.value,
+          description: form.elements.description.value,
+          time_estimate: form.elements.time_estimate.value,
+          duedate: form.elements.duedate.value,
+          image: form.elements.image.value,
+          //use map for creating an array (because of the multiple input option
+          //Remember to put a fixed value on the checkboxes, oterwise its just gonna say "on")
+          category: checked.map((el) => el.value),
+          others: form.elements.others.value,
+        },
+        //id sendes videre til put, så vi redigerer i det korrekte objekt.
+        form.dataset.id
+      );
+      form.dataset.state = "post";
+    }
     console.log("all good");
-    post({
-      name: form.elements.name.value,
-      description: form.elements.description.value,
-      time_estimate: form.elements.time_estimate.value,
-      duedate: form.elements.duedate.value,
-      image: form.elements.image.value,
-      //use map for creating an array (because of the multiple input option
-      //Remember to put a fixed value on the checkboxes, oterwise its just gonna say "on")
-      category: checked.map((el) => el.value),
-    });
     form.reset();
     document.querySelector(".header span").textContent = "";
   } else {
@@ -75,15 +97,5 @@ function checkIfValid(e) {
       }
     });
   }
-  /* if (!isMembersValid) {
-      const isMembersValid = elements.band_members.checkValidity();
-        console.log("This is a regular error");
-        console.log("members not valid");
-        const err = elements.band_members.validity;
-        if (err.valueMissing) {
-          console.log("You need to fill out number of band members");
-        }
-      } */
-
   console.log("submitted");
 }

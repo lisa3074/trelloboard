@@ -75,6 +75,11 @@ textarea {
   margin: 0 0.5rem 0.5rem 0;
 }
 
+#others {
+  width: 18px;
+  height: 18px;
+}
+
 button {
   padding: 0.5rem;
   border-radius: 10px;

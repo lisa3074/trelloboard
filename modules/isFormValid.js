@@ -40,15 +40,6 @@ function checkIfValid(e) {
       }
     });
   }
-  /* if (!isMembersValid) {
-      const isMembersValid = elements.band_members.checkValidity();
-        console.log("This is a regular error");
-        console.log("members not valid");
-        const err = elements.band_members.validity;
-        if (err.valueMissing) {
-          console.log("You need to fill out number of band members");
-        }
-      } */
 
   console.log("submitted");
 }
