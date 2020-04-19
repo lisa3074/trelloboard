@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <template>
+      <article class="temp">
+        <h1 class="name"><span></span></h1>
+        <div class="wrap">
+          <p class="description"><span></span></p>
+        </div>
+        <p class="duedate"><span></span></p>
+        <div class="wrap">
+          <p class="time_estimate"><span></span></p>
+        </div>
+        <div class="wrap">
+          <ul></ul>
+        </div>
+        <figure>
+          <img src="" alt="" class="image" />
+        </figure>
+        <button class="del">Delete</button>
+        <button class="edit">Edit</button>
+      </article>
+    </template>
+    <section class="form">
+      <article class="form_container">
+        <h1>Tasks</h1>
+        <fieldset>
+          <legend class="header">Task title: <span></span></legend>
+          <form>
+            <div class="info">
+              <div class="info_wrapper">
+                <label for="name">Task name</label>
+                <span>|| Type the name of the task</span>
+                <input type="text" id="name" name="name" placeholder="Name" required />
+                <p class="invalid_text">What is the task name?</p>
+              </div>
+
+              <div class="info_wrapper">
+                <label for="description">Description</label>
+                <span>|| Type a description that fits the task</span>
+                <textarea placeholder="Type a description" id="description" name="description" rows="10" cols="100"></textarea>
+              </div>
+
+              <div class="info_wrapper">
+                <label for="unknown">Don't know</label>
+                <span>|| Check if you don't have a description</span>
+                <input type="checkbox" id="unknown" name="unknown" />
+              </div>
+
+              <div class="info_wrapper">
+                <label for="estimate">Time esitmate in hours</label>
+                <span>|| Has to be a number</span>
+                <input type="number" id="estimate" name="time_estimate" placeholder="Time estimate" required />
+                <p class="invalid_text">How many hours does the task require?</p>
+              </div>
+
+              <div class="info_wrapper">
+                <label for="duedate">Due date</label>
+                <span>|| Pick the due date of the task</span>
+                <input type="datetime-local" id="duedate" name="duedate" min="2020-01-01T00:00" max="2031-12-31T00:00" />
+              </div>
+
+              <div class="info_wrapper">
+                <label for="image">Image</label>
+                <span>|| Upload an image</span>
+                <input type="file" id="image" name="image" />
+              </div>
+            </div>
+            <fieldset class="check">
+              <legend>Category</legend>
+              <span>Check all the categories that fit the task</span>
+              <p class="invalid_text hidden">I'm sure the task fits in at least one category...</p>
+              <div class="pre_written">
+                <div><input type="checkbox" id="research" name="category" value="Research" /> <label for="research">Research</label></div>
+                <div><input type="checkbox" id="design" name="category" value="Design" /> <label for="design">Design</label></div>
+                <div><input type="checkbox" id="code" name="category" value="Code" /> <label for="perc">Code</label></div>
+                <div><input type="checkbox" id="html" name="category" value="HTML" /><label for="html">HTML</label></div>
+                <div><input type="checkbox" id="css" name="category" value="CSS" /> <label for="css">CSS</label></div>
+                <div><input type="checkbox" id="js" name="category" value="JavaScript" /> <label for="ja">JavaScript</label></div>
+                <div><input type="checkbox" id="test" name="category" value="Test" /> <label for="test">Test</label></div>
+                <div><input type="checkbox" id="documentation" name="category" value="" /> <label for="documentation">Documentation</label></div>
+              </div>
+              <div><input type="checkbox" id="others" name="category" /> <label for="others">Others</label></div>
+            </fieldset>
+            <button type="submit">Add task</button>
+          </form>
+        </fieldset>
+      </article>
+    </section>
+    <section class="append"></section>
+    <button class="add">Add task</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

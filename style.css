@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+input,
+textarea {
+  box-shadow: 0px 0px 3px black;
+}
+fieldset {
+  border: 0;
+}
+legend {
+  padding: 1rem 1rem 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+label {
+  cursor: pointer;
+}
+
+.check legend {
+  padding-bottom: 0;
+}
+
+.form {
+  padding: 2rem;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 1ªrem;
+  font-weight: 400;
+}
+
+.form_container {
+  border: 1px solid hotpink;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 300px;
+}
+
+.info input,
+textarea {
+  width: 15rem;
+  padding: 0.4rem;
+  border-radius: 10px;
+  border-color: hotpink;
+  display: block;
+  background-color: rgb(255, 245, 250);
+  margin: 0.2rem 0 0.2rem 0;
+}
+
+.info_wrapper {
+  margin-top: 1.5rem;
+}
+
+.info label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.check input {
+  margin: 0 0.5rem 0.5rem 0;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  background-color: hotpink;
+}
+.form span {
+  font-size: 0.7rem;
+  color: rgb(165, 165, 165);
+  padding: 0 0 0.2rem 0;
+}
+.check span {
+  display: block;
+  padding-bottom: 1rem;
+}
+
+.check {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+}
+
+.check span {
+  color: #34495e;
+  padding: 0rem 0.25rem 0.7rem 0;
+}
+
+input:disabled,
+textarea:disabled {
+  background-color: rgb(223, 200, 211);
+}
+.check input,
+#unknown {
+  margin: 0.5rem 0 0 0;
+  height: 20px;
+  width: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid hotpink;
+  border-radius: 4px;
+  outline: none;
+  transition-duration: 0.6s;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+#unknown {
+  margin-top: 0.2rem;
+}
+#unknown {
+  margin-bottom: 1rem;
+}
+
+.check .pre_written input:checked,
+#unknown:checked {
+  border: 1px solid #808080;
+  background-color: hotpink;
+}
+.check input:checked {
+  border: 1px solid hotpink;
+  background-color: rgb(255, 255, 255);
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.append {
+  padding: 2rem;
+}
+
+.temp {
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 10px;
+  border: 1px solid hotpink;
+  width: 300px;
+}
+
+.temp img {
+  width: 30px;
+  padding-right: 1rem;
+  filter: grayscale(1);
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 1rem 1rem 1rem 0;
+  align-items: center;
+}
+
+li {
+  list-style: square;
+  list-style-position: inside;
+}
+
+/* input:invalid {
+  border-color: red;
+} */
+
+.info_wrapper > input.invalid {
+  border: 2px solid red;
+}
+
+#others:focus {
+  width: 200px;
+  cursor: text;
+}
+
+.invalid_text {
+  font-size: 0.7rem;
+  margin: 0;
+  padding: 0;
+  color: red;
+}
+
+.header span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+}
+
+input + p {
+  visibility: hidden;
+}
+input.invalid + p {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
