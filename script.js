@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", start);
 
 const form = document.querySelector("form");
 const elements = form.elements;
+let category_class;
 //DEBUG, FJERN EFTER
 window.elements = elements;
 window.form = form;
@@ -29,6 +30,7 @@ function start() {
   document.querySelector(".add_new").addEventListener("click", formToggle);
   document.querySelector(".close_it").addEventListener("click", formToggle);
 }
+
 function formToggle() {
   console.log("formTogle");
   document.querySelector(".form").classList.toggle("hide");

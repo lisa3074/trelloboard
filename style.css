@@ -83,7 +83,7 @@ textarea,
   min-width: 10rem;
   padding: 0.4rem;
   border-radius: 10px;
-  border: 1px solid hotpink;
+  border: 1px solid #d47fa6;
   display: block;
   background-color: rgb(255, 245, 250);
   margin: 0.2rem 0 0.2rem 0;
@@ -138,7 +138,7 @@ button {
   padding: 0.5rem;
   border-radius: 10px;
   margin-top: 1rem;
-  background-color: hotpink;
+  background-color: #d47fa6;
   margin-bottom: 2rem;
 }
 .form span {
@@ -178,7 +178,7 @@ textarea:disabled {
   -moz-appearance: none;
   -o-appearance: none;
   appearance: none;
-  border: 1px solid hotpink;
+  border: 1px solid #d47fa6;
   border-radius: 4px;
   outline: none;
   transition-duration: 0.6s;
@@ -196,10 +196,10 @@ textarea:disabled {
 #unknown:checked,
 .list input:checked {
   border: 1px solid #808080;
-  background-color: hotpink;
+  background-color: #d47fa6;
 }
 .check input:checked {
-  border: 1px solid hotpink;
+  border: 1px solid #d47fa6;
   background-color: rgb(255, 255, 255);
 }
 
@@ -236,17 +236,10 @@ textarea:disabled {
 }
 
 .temp {
-  background-color: rgb(255, 227, 227);
   padding: 2rem 4rem 2rem 3rem;
   margin-bottom: 2rem;
   border-radius: 10px;
   border: 1px solid gray;
-}
-
-.temp img {
-  width: 50%;
-  padding-right: 1rem;
-  filter: grayscale(1);
 }
 
 .wrap {
@@ -333,3 +326,101 @@ form {
 .hide {
   display: none;
 }
+
+/*
+NY STYLING
+*/
+
+.del img {
+  width: auto;
+  height: 30px;
+  object-fit: contain;
+}
+
+.edit img {
+  width: auto;
+  height: 30px;
+  object-fit: contain;
+}
+
+.del,
+.edit {
+  background: none;
+  border: 0;
+}
+
+.temp {
+  border-radius: 100% 0% 100% 0% / 22% 29% 18% 21%;
+  border-color: #fff;
+  margin: 0;
+  margin-top: -8rem;
+  padding: 8rem 2rem 7rem;
+}
+
+.list_wrapper .list_element {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.change_wrapper {
+  width: 100%;
+  text-align: right;
+}
+
+.HTML {
+  background-color: #d47fa6;
+  color: #fff;
+}
+
+.CSS {
+  background-color: #8a56ac;
+  color: #fff;
+}
+
+.JavaScript {
+  background-color: #cc959e;
+  color: #000;
+}
+
+.Research {
+  background-color: #3479ce;
+  color: #fff;
+}
+
+.Design {
+  background-color: #3ab2ab;
+  color: #fff;
+}
+
+.Code {
+  background-color: #bcc4db;
+  color: #000;
+}
+
+.Test {
+  background-color: #948d9b;
+  color: #fff;
+}
+
+.Documentation {
+  background-color: #1d2f6f;
+  color: #fff;
+}
+
+.Others {
+  background-color: #f7f9f9;
+  color: #000;
+}
+
+/*
+COLORS
+#D47FA6- the pink
+#8A56AC - purple
+#CC959E - old pink
+#3479CE - blue
+#3AB2AB - green 
+#BCC4DB - pastel blue
+#948D9B - gray
+#1D2F6F - dark blue
+#F7F9F9 - mørk hvid
+*/

@@ -120,8 +120,13 @@ function displayData(entry) {
   entry.category.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = item;
+    clone.querySelector(".temp").classList.add(li.textContent);
+    if (li.classList[0] == "others") {
+      console.log("others class");
+    }
     ul.appendChild(li);
   });
+
   //For klik på delete knap -> gå til deleteIt og send id'et med, så det er den samme klon der slettes, som der klikkes på.
   clone.querySelector(".del").addEventListener("click", function () {
     deleteIt(entry._id);
@@ -129,10 +134,9 @@ function displayData(entry) {
   //For klik på edit knap -> gå til edit og send id'et med, så det er den samme klon der redigeres, som der klikkes på.
   clone.querySelector(".edit").addEventListener("click", function () {
     document.querySelector(".form").classList.toggle("hide");
-
-    getSingleTask(entry._id, setUpFormForEdit);
-    // put(entry._id);
   });
+
+  getSingleTask(entry._id, setUpFormForEdit);
   document.querySelector(".todo span").appendChild(clone);
 }
 

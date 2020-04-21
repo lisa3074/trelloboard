@@ -1,0 +1,5 @@
+<svg id="icons_chevron" data-name="icons/chevron" xmlns="http://www.w3.org/2000/svg" width="113.739" height="79.263" viewBox="0 0 113.739 79.263">
+  <rect id="bg" width="24" height="24" transform="translate(5.728)" fill="none"/>
+  <rect id="line" width="80" height="15" rx="7.5" transform="translate(10.607 12) rotate(45)" fill="#ff69b4"/>
+  <rect id="line-2" data-name="line" width="80" height="15" rx="7.5" transform="translate(46.564 68.657) rotate(-45)" fill="#ff69b4"/>
+</svg>
