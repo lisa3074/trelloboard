@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+  </head>
     <title>Document</title>
   </head>
   <body>
@@ -11,19 +13,19 @@
       <article class="temp">
         <h1 class="name"><span></span></h1>
         <div class="wrap">
-          <p class="description"><span></span></p>
-        </div>
-        <p class="duedate"><span></span></p>
-        <div class="wrap">
-          <p class="time_estimate"><span></span></p>
-        </div>
-        <div class="wrap">
           <ul class="categorys"></ul>
         </div>
         <p class="other"></p>
-        <figure>
+                <div class="wrap description_wrap fade_out">
+                  <p class="description"><span></span></p>
+                </div>
+                <p class="duedate"><span></span></p>
+                <div class="wrap time_estimate_wrap fade_out">
+                  <p class="time_estimate"><span></span> hour(s)</p>
+                </div>
+       <!--  <figure class="fade_out image_wrap">
           <img src="" alt="" class="image" />
-        </figure>
+        </figure> -->
         <figure class="change_wrapper">
           <button class="del"><img src="static/icons/trash.png" /></button>
           <button class="edit"><img src="static/icons/icons-dark-edit.png" /></button>
@@ -71,11 +73,11 @@
                   <input type="date" id="duedate" name="duedate" min="2020-01-01" max="2031-12-31" />
                 </div>
 
-                <div class="info_wrapper">
+               <!--  <div class="info_wrapper">
                   <label for="image">Image</label>
                   <span>|| Upload an image</span>
                   <input type="file" id="image" name="image" />
-                </div>
+                </div> -->
               </div>
             </fieldset>
           </div>
@@ -84,27 +86,27 @@
               <legend>Category</legend>
               <span>|| Check all the categories that fit the task</span>
               <div class="pre_written">
-                <div><input type="checkbox" id="research" name="category" value="Research" /> <label for="research">Research</label></div>
-                <div><input type="checkbox" id="design" name="category" value="Design" /> <label for="design">Design</label></div>
-                <div><input type="checkbox" id="code" name="category" value="Code" /> <label for="code">Code</label></div>
-                <div><input type="checkbox" id="html" name="category" value="HTML" /> <label for="html">HTML</label></div>
-                <div><input type="checkbox" id="css" name="category" value="CSS" /> <label for="css">CSS</label></div>
-                <div><input type="checkbox" id="js" name="category" value="JavaScript" /> <label for="ja">JavaScript</label></div>
-                <div><input type="checkbox" id="test" name="category" value="Test" /> <label for="test">Test</label></div>
-                <div><input type="checkbox" id="documentation" name="category" value="Documentation" /> <label for="documentation">Documentation</label></div>
+                <div><input type="checkbox" class="cat" id="research" name="category" value="Research" /> <label for="research">Research</label></div>
+                <div><input type="checkbox" class="cat" id="design" name="category" value="Design" /> <label for="design">Design</label></div>
+                <div><input type="checkbox" class="cat" id="code" name="category" value="Code" /> <label for="code">Code</label></div>
+                <div><input type="checkbox" class="cat" id="html" name="category" value="HTML" /> <label for="html">HTML</label></div>
+                <div><input type="checkbox" class="cat" id="css" name="category" value="CSS" /> <label for="css">CSS</label></div>
+                <div><input type="checkbox" class="cat" id="js" name="category" value="JavaScript" /> <label for="ja">JavaScript</label></div>
+                <div><input type="checkbox" class="cat" id="test" name="category" value="Test" /> <label for="test">Test</label></div>
+                <div><input type="checkbox" class="cat" id="documentation" name="category" value="Documentation" /> <label for="documentation">Documentation</label></div>
               </div>
-              <div><input type="text" id="others" name="others" /> <label for="others">Others</label></div>
+              <div><input type="text" class="other cat" id="others" name="others" /> <label for="others">Others</label></div>
               <p class="invalid_text hidden">I'm sure the task fits in at least one category...</p>
             </fieldset>
             <fieldset class="list">
               <legend>List</legend>
               <span>|| How far along is this task?</span>
               <!--            <div class="pre_written"> -->
-              <div><input type="checkbox" id="todo" name="list" value="To do" /> <label for="todo">To do</label></div>
-              <div><input type="checkbox" id="in_progress" name="list" value="In progress" /> <label for="in_progress">In progress</label></div>
-              <div><input type="checkbox" id="done" name="category" value="Done" /> <label for="done">Done</label></div>
-              <div><input type="checkbox" id="barriers" name="category" value="Barriers" /> <label for="barriers">Barriers</label></div>
-
+              <div><input type="radio" id="todo" name="list" value="To do" /> <label for="todo">To do</label></div>
+              <div><input type="radio" id="in_progress" name="list" value="In progress" /> <label for="in_progress">In progress</label></div>
+              <div><input type="radio" id="done" name="list" value="Done" /> <label for="done">Done</label></div>
+              <div><input type="radio" id="barriers" name="list" value="Barriers" /> <label for="barriers">Barriers</label></div>
+              <p class="invalid_text hidden">You need to pick a list to put the task in...</p>
               <!--        </div> -->
               <p class="invalid_text hidden">I'm sure the task shoul be put in one of the lists...</p>
             </fieldset>
@@ -122,9 +124,9 @@
       <article class="progress list_element"><p>In progress</p></article>
       <article class="done list_element"><p>Done</p></article>
       <article class="barrier list_element"><p>Barrier</p></article>
+      <!--     <button class="add">Add task</button> -->
+      <button class="add_new">Add new task</button>
     </section>
-    <!--     <button class="add">Add task</button> -->
-    <button class="add_new">Add new task</button>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script src="script.js"></script>
   </body>

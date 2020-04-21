@@ -106,26 +106,36 @@ function displayData(entry) {
   const clone = template.cloneNode(true).content;
   const ul = clone.querySelector("ul");
   const li = document.createElement("li");
+  const temp = clone.querySelector(".temp");
   //sørger for at klonen har det samme id som i db, på denne måde kan vi slette klonen fra DOM'en med det samme der trykkes slet.
   clone.querySelector("article").dataset.id = entry._id;
   clone.querySelector(".name span").textContent = entry.name;
   clone.querySelector(".time_estimate span").textContent = entry.time_estimate;
   clone.querySelector(".description span").textContent = entry.description;
   clone.querySelector(".duedate span").textContent = entry.duedate.substring(0, 10);
-  clone.querySelector(".image").src = entry.image;
-  clone.querySelector(".image").alt = entry.name;
-  li.textContent = entry.others;
-  ul.appendChild(li);
+  /*  clone.querySelector(".image").src = entry.image;
+  clone.querySelector(".image").alt = entry.name; */
+  if (entry.others == "") {
+    console.log("ingen others");
+  } else {
+    li.textContent = entry.others;
+    temp.classList.add("other");
+    ul.appendChild(li);
+  }
+
   //smider hver kategori in i en li
   entry.category.forEach((item) => {
+    const temp = clone.querySelector(".temp");
     const li = document.createElement("li");
     li.textContent = item;
-    clone.querySelector(".temp").classList.add(li.textContent);
-    if (li.classList[0] == "others") {
-      console.log("others class");
-    }
+    temp.classList = "temp" + " " + item;
     ul.appendChild(li);
   });
+
+  if (entry.description == "") {
+  } else {
+    clone.querySelector(".description").classList.add("text_bg");
+  }
 
   //For klik på delete knap -> gå til deleteIt og send id'et med, så det er den samme klon der slettes, som der klikkes på.
   clone.querySelector(".del").addEventListener("click", function () {
@@ -134,9 +144,19 @@ function displayData(entry) {
   //For klik på edit knap -> gå til edit og send id'et med, så det er den samme klon der redigeres, som der klikkes på.
   clone.querySelector(".edit").addEventListener("click", function () {
     document.querySelector(".form").classList.toggle("hide");
+    getSingleTask(entry._id, setUpFormForEdit);
   });
 
-  getSingleTask(entry._id, setUpFormForEdit);
+  clone.querySelectorAll(".temp").forEach((e) => {
+    e.addEventListener("click", () => {
+      console.log("cæick");
+      document.querySelectorAll(".description_wrap, .time_estimate_wrap").forEach((e) => {
+        e.classList.toggle("fade_in");
+        e.classList.toggle("fade_out");
+      });
+    });
+  });
+
   document.querySelector(".todo span").appendChild(clone);
 }
 
@@ -145,18 +165,24 @@ function displyEdit(data, id) {
   const clone = document.querySelector(`article[data-id="${id}"]`);
   const ul = clone.querySelector("ul");
   const li = document.createElement("li");
+  const temp = clone;
   ul.innerHTML = "";
   clone.querySelector(".name span").textContent = data.name;
   clone.querySelector(".time_estimate span").textContent = data.time_estimate;
   clone.querySelector(".description span").textContent = data.description;
   clone.querySelector(".duedate span").textContent = data.duedate.substring(0, 10);
-  clone.querySelector(".image").src = data.image;
-  clone.querySelector(".image").alt = data.name;
-  li.textContent = data.others;
-  ul.appendChild(li);
+  if (data.others == "") {
+    console.log("ingen others");
+  } else {
+    li.textContent = data.others;
+    temp.classList.add("other");
+    ul.appendChild(li);
+  }
   data.category.forEach((item) => {
     const li = document.createElement("li");
+    const temp = clone;
     li.textContent = item;
+    temp.classList = "temp" + " " + item;
     ul.appendChild(li);
   });
 }
@@ -196,7 +222,7 @@ function setUpFormForEdit(data) {
   elements.description.value = data.description;
   elements.time_estimate.value = data.time_estimate;
   // elements.duedate.value = data.duedate;
-  elements.image.value = data.image;
+  //elements.image.value = data.image;
   elements.category.value = data.category;
   data.category.forEach((item) => {
     document.querySelector(`[value="${item}"]`).checked = true;
@@ -208,7 +234,9 @@ function setUpFormForEdit(data) {
     elements.others.value = data.others;
     others.style.width = "200px";
   }
-
+  document.querySelector(".close_it").addEventListener("click", () => {
+    form.dataset.id = "";
+  });
   //handle submits
 
   //remove evthandler add evthandler

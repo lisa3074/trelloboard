@@ -30,7 +30,6 @@ function start() {
   document.querySelector(".add_new").addEventListener("click", formToggle);
   document.querySelector(".close_it").addEventListener("click", formToggle);
 }
-
 function formToggle() {
   console.log("formTogle");
   document.querySelector(".form").classList.toggle("hide");
@@ -46,12 +45,12 @@ function checkIfValid(e) {
     el.classList.remove("invalid");
   });
   //make a nodeString into an array by adding square brackets three dots and the nodeString [...nodestring]
-  const cbs = [...form.querySelectorAll(`[name=category]`)];
+  const cbs = [...form.querySelectorAll(".cat")];
   const checked = cbs.filter((el) => el.checked);
   const cbError = form.querySelector(".check p");
   console.log(cbs);
   console.log(checked);
-  if (checked.length === 0) {
+  if (checked.value === 0) {
     console.log("check invalid");
     formIsValid = false;
     cbError.classList.remove("hidden");
@@ -68,7 +67,7 @@ function checkIfValid(e) {
         description: form.elements.description.value,
         time_estimate: form.elements.time_estimate.value,
         duedate: form.elements.duedate.value,
-        image: form.elements.image.value,
+        // image: form.elements.image.value,
         //use map for creating an array (because of the multiple input option
         //Remember to put a fixed value on the checkboxes, oterwise its just gonna say "on")
         category: checked.map((el) => el.value),
@@ -82,7 +81,7 @@ function checkIfValid(e) {
           description: form.elements.description.value,
           time_estimate: form.elements.time_estimate.value,
           duedate: form.elements.duedate.value,
-          image: form.elements.image.value,
+          //image: form.elements.image.value,
           //use map for creating an array (because of the multiple input option
           //Remember to put a fixed value on the checkboxes, oterwise its just gonna say "on")
           category: checked.map((el) => el.value),
